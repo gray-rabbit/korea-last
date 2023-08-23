@@ -2,10 +2,11 @@
 	import { onMount } from 'svelte';
 	import Textimpact from '$components/textimpact.svelte';
 	import { synth } from '$lib/speech';
-
+	const datas = ['가', '나', '다', '라', '마', 'ㅁ', '감', '남', '담', '람', '맘'];
+	const datas2 = ['버', '서', '저', '터', '퍼', 'ㅁ', '범', '섬', '점', '터', '펌'];
 	function play_element_value_by_slow(e: MouseEvent) {
 		const el = e.target as HTMLParagraphElement | HTMLSpanElement;
-		const value = el.innerText;
+		let value = el.dataset.text ?? '';
 		synth(value, 0.5);
 	}
 </script>
@@ -46,32 +47,44 @@
 
 	<div class="grid grid-cols-6 text-4xl bg-gray-200 p-2 text-center border-2 border-blue-200">
 		<div />
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>가</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>나</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>다</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>라</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>마</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('감', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('남', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('담', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('람', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('맘', 0.5)}>ㅁ</button>
+		{#each datas as data, idx}
+			{#if idx > 5}
+				<button
+					class="btn btn-ghost hover:text-4xl"
+					class:hover:4-xl={idx > 4}
+					data-text={data}
+					on:click={play_element_value_by_slow}>ㅁ</button
+				>
+			{:else}
+				<button
+					class="btn btn-ghost text-4xl"
+					class:hover:4-xl={idx > 4}
+					data-text={data}
+					on:click={play_element_value_by_slow}>{data}</button
+				>
+			{/if}
+		{/each}
 	</div>
 	<br />
 	<div class="grid grid-cols-6 text-4xl bg-gray-200 p-2 text-center border-2 border-blue-200">
 		<div />
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>버</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>서</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>저</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>터</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>퍼</button>
-		<button class="btn btn-ghost text-4xl" on:click={play_element_value_by_slow}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('범', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('섬', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('점', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('텀', 0.5)}>ㅁ</button>
-		<button class="btn btn-ghost hover:text-4xl" on:click={() => synth('펌', 0.5)}>ㅁ</button>
+		{#each datas2 as data, idx}
+			{#if idx > 5}
+				<button
+					class="btn btn-ghost hover:text-4xl"
+					class:hover:4-xl={idx > 4}
+					data-text={data}
+					on:click={play_element_value_by_slow}>ㅁ</button
+				>
+			{:else}
+				<button
+					class="btn btn-ghost text-4xl"
+					class:hover:4-xl={idx > 4}
+					data-text={data}
+					on:click={play_element_value_by_slow}>{data}</button
+				>
+			{/if}
+		{/each}
 	</div>
 	<div class="flex justify-center my-5">
 		<a class="btn btn-primary" href="2">다음으로</a>
