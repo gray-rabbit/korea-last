@@ -95,3 +95,7 @@
 {#if show_feedback}
 	<Feedback {positive} on:feedback_end={feedback_finished} />
 {/if}
+
+<footer class="absolute bottom-1 left-0 w-screen flex justify-center">
+	<a href="/chapter2" class="btn btn-error">건너뛰기</a>
+</footer>

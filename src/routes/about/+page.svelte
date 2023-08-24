@@ -1,26 +1,46 @@
+<script lang="ts">
+	import { goto } from '$app/navigation';
+	import '../styles.css';
+</script>
+
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+	<title>한글한글 메뉴</title>
+	<meta name="description" content="메뉴" />
 </svelte:head>
 
-<div class="text-column">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
+<div class="h-screen w-screen flex flex-col justify-center items-center">
+	<div class="text-4xl border-2 border-gray-500 p-4 w-[200px] sm:w-[360px] rounded-xl text-center">
+		<p>음절 익히기</p>
+		<div class="">
+			<button class="btn btn-primary btn-block" on:click={() => goto('/chapter1')}>학습하기</button>
+		</div>
+	</div>
+	<br />
+	<div class="text-4xl border-2 border-gray-500 p-4 w-[200px] sm:w-[360px] rounded-xl text-center">
+		<p>받침 익히기</p>
+		<div class="">
+			<button class="btn btn-primary btn-block" on:click={() => goto('/chapter2')}>학습하기</button>
+		</div>
+	</div>
+	<br />
+	<div class="text-4xl border-2 border-gray-500 p-4 w-[200px] sm:w-[360px] rounded-xl text-center">
+		<p>낱말 읽기 게임</p>
+		<div class="">
+			<button class="btn btn-primary btn-block" on:click={() => goto('/chapter3')}>학습하기</button>
+		</div>
+	</div>
+	<br />
 </div>
+
+<style>
+	@font-face {
+		font-family: CookieRunBold;
+		src: url(/fonts/CookieRunBold.ttf);
+	}
+	body {
+		height: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
+		font-family: 'CookieRunBold';
+	}
+</style>

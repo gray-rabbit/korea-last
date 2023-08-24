@@ -6,7 +6,7 @@
 	import MicRecog from '$lib/components/MicRecog.svelte';
 	import Feedback from '$lib/components/feedback.svelte';
 	let recog;
-	let current_idx = 8;
+	let current_idx = 0;
 	let finished = false;
 	let koreans = ['밤', '점', '금', '숨', '햄', '꿈', '점심', '샴푸', '임금님'];
 	$: current_word = koreans[current_idx];
@@ -90,3 +90,6 @@
 {#if show_feedback}
 	<Feedback positive={true} on:feedback_end={feedback_ended_handler} />
 {/if}
+<footer class="absolute bottom-1 left-0 w-screen flex justify-center">
+	<a href="./3" class="btn btn-error">건너뛰기</a>
+</footer>
