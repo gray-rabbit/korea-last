@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import MicRecog from '$lib/components/MicRecog.svelte';
 	import Feedback from '$lib/components/feedback.svelte';
 	import Textimpact from '$lib/components/textimpact.svelte';
@@ -56,6 +57,7 @@
 		if (positive) {
 			if (current_idx == question_data.length - 1) {
 				// current_idx = 0;
+				goto('/about');
 			} else {
 				current_idx++;
 			}

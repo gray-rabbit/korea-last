@@ -25,15 +25,21 @@
 	<p class="text-3xl">'ㅁ'의 소리를 눌러서 확인하세요.</p>
 	<div class="border-2 rounded-lg flex w-full justify-center py-5">
 		<div class="flex justify-center items-center min-w-[100px] bg-blue-100 rounded-xl">
-			<button class="text-9xl hover:bg-gray-200" on:click={play_element_value_by_slow}>ㅁ</button>
+			<button
+				data-text="ㅁ"
+				class="text-9xl hover:bg-gray-200"
+				on:click={play_element_value_by_slow}>ㅁ</button
+			>
 		</div>
 		<div class="flex flex-col justify-center items-center min-w-[100px]">
 			<button
 				class="text-2xl border p-2 rounded-xl bg-blue-200"
+				data-text="미"
 				on:click={play_element_value_by_slow}>미</button
 			>
 			<button
 				class="text-6xl border p-2 mt-2 rounded-xl bg-blue-300"
+				data-text="음"
 				on:click={play_element_value_by_slow}
 			>
 				음

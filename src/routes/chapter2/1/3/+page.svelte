@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Feedback from '$lib/components/feedback.svelte';
 	let finished = false;
 	const koreans = ['름', '림', '김', '참'];
@@ -46,6 +47,7 @@
 		if (current_idx == urls.length - 1) {
 			// console.log('끝남');
 			finished = true;
+			goto('/chapter2');
 		} else {
 			current_idx++;
 		}
@@ -60,11 +62,11 @@
 </div>
 <br />
 {#if !finished}
-	<div class="border-4 rounded-lg text-center relative bg-green-100 m-2 mx-10">
+	<div class="border-4 rounded-lg text-center relative bg-green-100 m-2">
 		<div class="badge bg-blue-300 absolute bottom-1 left-4">보기</div>
 		{#each koreans as korean}
 			<button
-				class="m-2 rounded-lg border-2 border-gray-600 p-4 text-6xl"
+				class="m-2 rounded-lg border-2 border-gray-600 p-4 text-3xl sm:text-6xl"
 				draggable="true"
 				on:dragstart={dragStart}
 				on:dragend={dragend}>{korean}</button
@@ -80,12 +82,14 @@
 					<p
 						on:drop={drop}
 						on:dragover={dragOver}
-						class="text-6xl text-center border-2 border-gray-600 p-5 m-1 min-w-[90px]"
+						class="text-3xl sm:text-6xl text-center border-2 border-gray-600 p-5 m-1 min-w-[90px]"
 					>
 						?
 					</p>
 				{:else}
-					<p class="text-6xl text-center border-2 border-gray-600 p-5 m-1 min-w-[90px]">{ch}</p>
+					<p class="text-3xl sm:text-6xl text-center border-2 border-gray-600 p-5 m-1 min-w-[90px]">
+						{ch}
+					</p>
 				{/if}
 			{/each}
 		</div>
