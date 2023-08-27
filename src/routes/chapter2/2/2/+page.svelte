@@ -9,7 +9,7 @@
 	let recog;
 	let current_idx = 0;
 	let finished = false;
-	let koreans = ['밤', '점', '금', '숨', '햄', '꿈', '점심', '샴푸', '임금님'];
+	let koreans = ['밥', '컵', '밉다', '접시', '매듭', '무섭다', '집밥', '고집', '수업', '구급차'];
 	$: current_word = koreans[current_idx];
 	$: temp_word = Hangul.disassemble(current_word);
 	function parser(word: string) {
@@ -53,7 +53,8 @@
 		if (positive) {
 			if (current_idx == koreans.length - 1) {
 				// current_idx = 0;
-				goto('/chapter2/1/3');
+				goto('/chapter2/2/3');
+				finished = true;
 			} else {
 				current_idx++;
 			}

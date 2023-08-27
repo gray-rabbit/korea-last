@@ -14,7 +14,7 @@ function make_recognizor() {
     // const console.log(window.webkitSpeechRecognition);
     const recognition = new SpeechRecognition();
     const speechRecognitionList = new SpeechGrammarList();
-    const colors = ['가', '나', '다', '라', '마', '바', '사', '아', '자', '읔' /* … */];
+    const colors = ['가', '나', '다', '라', '마', '바', '사', '아', '자', '읔', '톱', '곱', '줍', '밥', '컵' /* … */];
     const grammar = `#JSGF V1.0; grammar colors; public <color> = ${colors.join(' | ')};`;
     speechRecognitionList.addFromString(grammar, 1);
     recognition.grammars = speechRecognitionList;

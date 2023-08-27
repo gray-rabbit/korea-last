@@ -5,22 +5,27 @@
 	const dispatch = createEventDispatcher();
 	let recog: any;
 	let modal: HTMLDialogElement;
-
+	let is_recoging = false;
 	onMount(() => {
 		recog = make_recognizor();
 		recog.onresult = (event: any) => {
 			let result = event.results[0][0].transcript;
-			close_modal();
 			dispatch('recog_result', result);
 		};
+		recog.onend = (event: any) => {
+			close_modal();
+		};
+		// recog.on
 	});
 
 	function show_modal() {
 		modal.showModal();
 		recog.start();
+		is_recoging = true;
 	}
 	function close_modal() {
 		modal.close();
+		is_recoging = true;
 	}
 
 	function abort_recog() {
